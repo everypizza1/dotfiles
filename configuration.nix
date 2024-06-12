@@ -130,9 +130,14 @@
   #kvantum
   git
   linuxHeaders
+  spotify
+  docker
+  steam
+  android-tools
   gcc
   cava
   bc
+  neochat
   syncthing
   wineWow64Packages.unstable
   #winePackages.unstable #i hate wine it's so annoying
@@ -184,15 +189,15 @@
 
 #
 
-services = {
-    syncthing = {
-        enable = true;
+#services = {
+#    syncthing = {
+#        enable = true;
 #        dataDir = "/home/everypizza/.gemeni-is-dumb/";
 #        user = "myusername";
 #        dataDir = "/home/myusername/Documents";    # Default folder for new synced folders
 #        configDir = "/home/myusername/Documents/.config/syncthing";   # Folder for Syncthing's settings and keys
-    };
-};
+#    };
+#};
 
 
 
