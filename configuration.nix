@@ -97,6 +97,7 @@
     python3Full # Python
     python3Packages.pip # pip for some reason
     fastfetch # flex nix
+    hyfetch # flex nix + sexuality
     superTuxKart # gayming
     noto-fonts-cjk-sans # Extra fonts
     jamesdsp # Audio effects
