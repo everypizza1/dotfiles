@@ -97,7 +97,6 @@
     python3Full # Python
     python3Packages.pip # pip for some reason
     fastfetch # flex nix
-    hyfetch # flex nix + sexuality
     superTuxKart # gayming
     noto-fonts-cjk-sans # Extra fonts
     jamesdsp # Audio effects
@@ -120,11 +119,21 @@
     stdenv # Something to do with development
     gnumake # See previous
     #rtl88x2bu # See https://github.com/NixOS/nixpkgs/issues/319097
+    cmake # Compiling code
+    extra-cmake-modules # Compiling code
+    kdelibs5support # KF5?
   ];
 
   # Version
   # Before changing this value RTFM (man configuration.nix or on https://nixos.org/nixos/options.html)
   system.stateVersion = "24.05";
+
+  # Swap
+  swapDevices = [{
+    device = "/swapfile";
+    size = 16 * 1024; # Change as needed, this is currently 16GB
+  }];
+
 
   # like and subscribe
 }
