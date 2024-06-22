@@ -1,0 +1,200 @@
+{
+    "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+    "logo": {
+        "padding": {
+            "top": 8,
+            "left": 4,
+            "right": 4
+        }
+    },
+    "display": {
+        "separator": "->  "
+    },
+    "modules": [
+        {
+            "type": "custom",
+            "format": "┌─────────────────┐"
+        },
+        {
+            "type": "title",
+            "format": "   {6}@{8}"
+        },
+        {
+            "type": "sound",
+            "key": "   Sound  "
+        },
+        {
+            "type": "custom",
+            "format": "└─────────────────┘"
+        },
+        "break",
+
+        {
+            "type": "custom",
+            "format": "┌─────────── System ───────────┐"
+        },
+        {
+            "type": "os",
+            "key": "   OS  "
+        },
+        {
+            "type": "kernel",
+            "key": "   Kernel  ",
+            "format": "{2}"
+        },
+        {
+            "type": "host",
+            "key": "   Model  "
+        },
+        {
+            "type": "bios",
+            "key": "   BIOS  ",
+            "format": "v{4}"
+        },
+        {
+            "type": "datetime",
+            "key": "   Date  ",
+            "format": "{1}/{4}/{11}"
+        },
+        {
+            "type": "datetime",
+            "key": "   Time  ",
+            "format": "{14}:{18}:{20}"
+        },
+        {
+            "type": "uptime",
+            "key": "   Uptime  ",
+            "format": "{1} D, {2} H, {3} M"
+        },
+        {
+            "type": "bootmgr",
+            "key": "   Boot Manager"
+        },
+        {
+            "type": "custom",
+            "format": "└──────────────────────────────┘"
+        },
+        "break",
+
+        {
+            "type": "custom",
+            "format": "┌───────────────── Software ─────────────────┐"
+        },
+
+        {
+            "type": "packages",
+            "key": "   Packages  "
+        },
+        {
+            "type": "opengl",
+            "key": "   OpenGL  ",
+            "format": "Version {4}"
+        },
+        {
+            "type": "vulkan",
+            "key": "   Vulkan  ",
+            "format": "Version {2}"
+        },
+        {
+            "type": "lm",
+            "key": "   Login Manager  "
+        },
+        {
+            "type": "wm",
+            "key": "   Window Manager  "
+        },
+        {
+            "type": "terminal",
+            "key": "   Terminal  "
+        },
+        {
+            "type": "version",
+            "key": "   FastFetch  "
+        },
+        {
+            "type": "command",
+            "key": "   NeoVim  ",
+            "text": "nvim -v | head -n 1"
+        },
+        {
+            "type": "custom",
+            "format": "└────────────────────────────────────────────┘"
+        },
+        "break",
+
+        {
+            "type": "custom",
+            "format": "┌──────────────────── Hardware ───────────────────┐"
+        },
+        {
+            "type": "cpu",
+            "key": "   CPU  ",
+            "format": "{1}"
+        },
+        {
+            "type": "gpu",
+            "key": "   GPU  ",
+            "format": "{1} {2}"
+        },
+        {
+            "type": "memory",
+            "key": "   RAM  "
+        },
+        {
+            "type": "disk",
+            "key": "   Disk  ",
+            "format": "{1} / {2} ({3}) - {9}"
+        },
+        {
+            "type": "display",
+            "key": "   Display  "
+        },
+        {
+            "type": "custom",
+            "format": "└─────────────────────────────────────────────────┘"
+        },
+        "break",
+
+        {
+            "type": "custom",
+            "format": "┌───────────────────── Network ─────────────────────┐"
+        },
+        {
+            "type": "wifi",
+            "key": "   Wifi  ",
+            "format": "{4} ({7}%)"
+        },
+        {
+            "type": "localip",
+            "key": "   Local IP  "
+        },
+        {
+            "type": "publicip",
+            "key": "   Public IP  "
+        },
+        {
+            "type": "custom",
+            "format": "└───────────────────────────────────────────────────┘"
+        },
+        "break",
+        {
+            "type": "custom",
+            "format": "┌───────────────────── Music ─────────────────────┐"
+        },
+        {
+            "type": "player",
+            "key": "   Audio Player  "
+        },
+        {
+            "type": "media",
+            "key": "   Song Name  "
+        },
+        {
+            "type": "custom",
+            "format": "└─────────────────────────────────────────────────┘"
+        },
+        "break",
+
+        "colors"
+    ]
+}
