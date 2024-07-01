@@ -12,8 +12,9 @@
     ];
 
   # bootloader
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.grub.enable = true;
+  boot.loader.grub.device = "/dev/sda";
+  boot.loader.grub.useOSProber = true;
   boot.supportedFilesystems = [ "ntfs" ];
 
   # kernel
@@ -51,9 +52,9 @@
     xkb.variant = "";
   };
 
-  # KDE Plasma
-  services.displayManager.sddm.enable = true;
-  services.desktopManager.plasma6.enable = true;
+  # DE
+  services.xserver.displayManager.lightdm.enable = true;
+  services.xserver.desktopManager.lxqt.enable = true;
 
   # Flatpak
   services.flatpak.enable = true;
@@ -93,35 +94,18 @@
 
   # Packages
   environment.systemPackages = with pkgs; [
-    wget # No clue why
     python3Full # Python
-    python3Packages.pip # pip for some reason
+    hyfetch # trans gender!!!!!!!!!!!!
     fastfetch # flex nix
     superTuxKart # gayming
     noto-fonts-cjk-sans # Extra fonts
     jamesdsp # Audio effects
-    cinny-desktop # [matrix] client
-    vscode # also no clue why
-    kitty # Terminal
-    kdePackages.qtstyleplugin-kvantum # Theming
     git # Version control
-    linuxHeaders # No clue
     spotify # Music
-    docker # Development
     steam # gayming
-    android-tools # adb
-    gcc # Compiling code
     cava # Visualizer
-    bc # Compiling a driver, not working
-    # neochat # Didn't work
     syncthing # File sync
     wineWow64Packages.unstable # my inner Arch user made me do this
-    stdenv # Something to do with development
-    gnumake # See previous
-    #rtl88x2bu # See https://github.com/NixOS/nixpkgs/issues/319097
-    cmake # Compiling code
-    extra-cmake-modules # Compiling code
-    kdelibs5support # KF5?
   ];
 
   # Version
