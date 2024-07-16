@@ -16,6 +16,10 @@
   boot.loader.grub.device = "/dev/sda";
   boot.loader.grub.useOSProber = true;
   boot.supportedFilesystems = [ "ntfs" ];
+  boot.loader.grub.memtest86.enable = true;
+
+  # Fixes
+  hardware.opengl.driSupport32Bit = true;
 
   # kernel
   boot.kernelPackages = pkgs.linuxPackages_latest;
@@ -26,10 +30,6 @@
 
   # timezone
   time.timeZone = "America/Chicago";
-
-  # Unknown
-  # I have no clue what most of these do. ~~PRs appreciated~~
-  environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   # i18n
   i18n.defaultLocale = "en_US.UTF-8";
@@ -53,12 +53,17 @@
   };
 
   # DE
-  services.xserver.displayManager.lightdm.enable = true;
+  services.xserver.displayManager.sddm.enable = true;
   services.xserver.desktopManager.lxqt.enable = true;
+
+  #WM
+  services.xserver.windowManager.jwm.enable = true;
+  programs.wayfire.enable = true;  
 
   # Flatpak
   services.flatpak.enable = true;
-    # Portals
+
+  # Portals
   xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   xdg.portal.config.common.default = "gtk";
 
@@ -98,14 +103,39 @@
     hyfetch # trans gender!!!!!!!!!!!!
     fastfetch # flex nix
     superTuxKart # gayming
+    gocryptfs # Encrypted files
+    cinny-desktop # Matrix client
+    sirikali # See above
     noto-fonts-cjk-sans # Extra fonts
-    jamesdsp # Audio effects
+    cmake
+    gnumake
+    jwm # who is Joe and why does he make a window manager
+    ibm-plex # Cool font
+    kdePackages.breeze # breeze?
+    steam-run # Has nothing to do with the gaming playform with the same name, used for running AppImage files
+    jwm-settings-manager # Joe's Window Manager config
     git # Version control
+    wayfirePlugins.wayfire-plugins-extra # More Wayfire plugins
     spotify # Music
-    steam # gayming
+    swaylock # Screen locker
+    #wshot # Screenshots
+    wayfirePlugins.wcm # Wayfire Configuration Manager plugin
+    unzip # Read title
+    librewolf # firefox 128 sucks skull emoji
+    xclicker # Autoclick
+    protonvpn-cli # Proton VPN
     cava # Visualizer
+    lrzip # Compression
     syncthing # File sync
     wineWow64Packages.unstable # my inner Arch user made me do this
+  ];
+  # programs.qt5ct.enable = true;
+  
+  # Fonts
+  fonts.packages = with pkgs; [
+    ibm-plex
+    # (nerdfonts.override { fonts = [ "BlexMono" ]; })
+    # nerdfonts
   ];
 
   # Version
