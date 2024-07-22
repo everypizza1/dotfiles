@@ -1,7 +1,5 @@
 # made 6/12/24
 # public domain
-# TODO: sort out the "Unknown" section (added 6/12/24 15:36)
-# TODO: casing (added 6/12/24 15:37)
 
 { config, pkgs, ... }:
 
@@ -11,7 +9,7 @@
       ./hardware-configuration.nix
     ];
 
-  # bootloader
+  # Bootloader
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "/dev/sda";
   boot.loader.grub.useOSProber = true;
@@ -20,18 +18,21 @@
 
   # Fixes
   hardware.opengl.driSupport32Bit = true;
+  environment.sessionVariables = rec {
+    QT_QPA_PLATFORMTHEME = "qt6ct";  
+  };  
 
-  # kernel
+  # Kernel
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  # networking
+  # Networking
   networking.hostName = "nixos";
   networking.networkmanager.enable = true;
 
-  # timezone
+  # Timezone
   time.timeZone = "America/Chicago";
 
-  # i18n
+  # I18n
   i18n.defaultLocale = "en_US.UTF-8";
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "en_US.UTF-8";
@@ -56,7 +57,7 @@
   services.xserver.displayManager.sddm.enable = true;
   services.xserver.desktopManager.lxqt.enable = true;
 
-  #WM
+  # WM
   services.xserver.windowManager.jwm.enable = true;
   programs.wayfire.enable = true;  
 
@@ -105,9 +106,16 @@
     superTuxKart # gayming
     gocryptfs # Encrypted files
     cinny-desktop # Matrix client
-    sirikali # See above
     noto-fonts-cjk-sans # Extra fonts
     cmake
+    kdePackages.qt6ct
+    lxappearance
+    grim
+    slurp
+    themechanger
+    kfind
+    orchis-theme
+    kdePackages.qtstyleplugin-kvantum
     gnumake
     jwm # who is Joe and why does he make a window manager
     ibm-plex # Cool font
@@ -127,9 +135,9 @@
     cava # Visualizer
     lrzip # Compression
     syncthing # File sync
-    wineWow64Packages.unstable # my inner Arch user made me do this
+    wineWow64Packages.unstable # WINE compatibility layer
   ];
-  # programs.qt5ct.enable = true;
+  # programs.qt6ct.enable = true;
   
   # Fonts
   fonts.packages = with pkgs; [
@@ -140,7 +148,7 @@
 
   # Version
   # Before changing this value RTFM (man configuration.nix or on https://nixos.org/nixos/options.html)
-  system.stateVersion = "24.05";
+  system.stateVersion = "unstable";
 
   # Swap
   swapDevices = [{
