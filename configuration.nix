@@ -7,6 +7,7 @@
   imports =
     [
       ./hardware-configuration.nix
+      <home-manager/nixos>
     ];
 
   # Bootloader
@@ -89,6 +90,31 @@
     packages = with pkgs; [
       kdePackages.kate
     ];
+  };
+
+  # Home Manager
+  home-manager = {
+    # becoming default later anyway. uses /etc/profiles instead of filling up your ~/.nix.
+    useUserPackages = true;
+    # pins home-manager's pkgs to the same pkgs you're using for your system.
+    # makes debugging way less insane.
+    useGlobalPkgs = true;
+
+    users.everypizza = { pkgs, ... }: {
+      # these are home-manager options
+      # https://home-manager-options.extranix.com
+      # nixos options (https://search.nixos.org/options) for your user specifically.
+      programs = {
+        bash.enabled = true;
+      };
+  
+      # declaratively configures your home env.
+      home = {
+        # packages available only to your user.
+        # nixos packages (https://search.nixos.org/packages) for your user specifically.
+        packages = [ ];
+      };
+    };
   };
 
   # Programs
